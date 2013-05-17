@@ -15,6 +15,7 @@ import com.dddbomber.fishingjam.assets.Asset;
 import com.dddbomber.fishingjam.assets.AssetLoader;
 import com.dddbomber.fishingjam.assets.Screen;
 import com.dddbomber.fishingjam.input.InputHandler;
+import com.dddbomber.fishingjam.instance.family.Person;
 import com.dddbomber.fishingjam.menu.Menu;
 
 public class Game extends Canvas implements Runnable{
@@ -94,6 +95,9 @@ public class Game extends Canvas implements Runnable{
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 		game.start();
+		for(int i = 0; i < 25; i++){
+			new Person(false, false);
+		}
 	}
 	
 	private Thread gameThread;

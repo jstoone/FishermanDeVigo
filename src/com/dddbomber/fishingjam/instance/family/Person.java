@@ -12,5 +12,11 @@ public class Person {
 		this.canWork = canWork;
 		name = NameGenerator.getInstance().getName();
 	}
+
+	public Person(boolean male, boolean canWork, String name) {
+		this.male = male;
+		this.canWork = canWork;
+		this.name = name;
+	}
 	
 }
