@@ -5,6 +5,7 @@ import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.event.KeyEvent;
 import java.awt.image.BufferStrategy;
 
 import javax.swing.JFrame;
@@ -13,6 +14,7 @@ import javax.swing.JPanel;
 import com.dddbomber.fishingjam.assets.Asset;
 import com.dddbomber.fishingjam.assets.AssetLoader;
 import com.dddbomber.fishingjam.assets.Screen;
+import com.dddbomber.fishingjam.input.InputHandler;
 
 public class Game extends Canvas implements Runnable{
 	private static final long serialVersionUID = 1L;
@@ -21,10 +23,12 @@ public class Game extends Canvas implements Runnable{
 	public static final String NAME = "Fisherman De Vigo";
 
 	public Screen screen;
+	public InputHandler input;
 	
 	public Game(){
 		setSize(new Dimension(WIDTH * SCALE, HEIGHT * SCALE));
 		screen = new Screen(WIDTH, HEIGHT);
+		input = new InputHandler(this);
 	}
 	
 	public static int ticks, renders;
@@ -68,7 +72,7 @@ public class Game extends Canvas implements Runnable{
 			screen.pixels[i] = 0;
 		}
 		
-		screen.drawScaled(Asset.test, 0, 0, 0, 0, WIDTH, HEIGHT, scale, scale);
+		screen.drawScaled(Asset.test, 0, 0, 0, 0, WIDTH, HEIGHT, xScale, yScale);
 		
 		g.drawImage(screen.getImage(), 0, 0, getWidth(), getHeight(), null);
 		
@@ -76,11 +80,14 @@ public class Game extends Canvas implements Runnable{
 		bs.show();
 	}
 	
-	public double scale;
+	public double xScale, yScale;
 
 	private void tick() {
 		ticks++;
-		scale += 0.01;
+		if(input.keyboard.keys[KeyEvent.VK_DOWN])yScale += 0.01;
+		if(input.keyboard.keys[KeyEvent.VK_UP])yScale -= 0.01;
+		if(input.keyboard.keys[KeyEvent.VK_RIGHT])xScale += 0.01;
+		if(input.keyboard.keys[KeyEvent.VK_LEFT])xScale -= 0.01;
 	}
 	
 	public static void main(String[] args){
