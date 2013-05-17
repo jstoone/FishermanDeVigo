@@ -5,6 +5,8 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
+import com.dddbomber.fishingjam.Game;
+
 public class MouseHandler implements MouseListener, MouseMotionListener{
 	
 	public MouseHandler(Canvas c){
@@ -18,14 +20,14 @@ public class MouseHandler implements MouseListener, MouseMotionListener{
 
 	@Override
 	public void mouseDragged(MouseEvent arg0) {
-		x = arg0.getX();
-		y = arg0.getY();
+		x = arg0.getX()/Game.SCALE;
+		y = arg0.getY()/Game.SCALE;
 	}
 
 	@Override
 	public void mouseMoved(MouseEvent arg0) {
-		x = arg0.getX();
-		y = arg0.getY();
+		x = arg0.getX()/Game.SCALE;
+		y = arg0.getY()/Game.SCALE;
 	}
 
 	@Override
