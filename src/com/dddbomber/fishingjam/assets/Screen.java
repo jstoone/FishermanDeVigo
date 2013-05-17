@@ -110,6 +110,21 @@ public class Screen extends Bitmap{
 		}
 	}
 	
+	public void fill(int xPos, int yPos, int w, int h, int col, int amount){
+		for(int y = 0; y < h; y++){
+			int yPix = y+yPos;
+			if(yPix < 0 || yPix >= height)continue;
+			
+			for(int x = 0; x < w; x++){
+				int xPix = x+xPos;
+				if(xPix < 0 || xPix >= width)continue;
+				int merged = merge(col, pixels[xPix + yPix * width], amount);
+				pixels[xPix + yPix * width] = merged;
+			}
+		}
+		
+	}
+	
 	public int merge(int color, int color2, int amount) {
 
         int r = (color >> 16) & 0xff;

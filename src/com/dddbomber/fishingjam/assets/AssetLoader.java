@@ -12,7 +12,6 @@ public class AssetLoader {
 			int h = img.getHeight();
 			Bitmap result = new Bitmap(w, h);
 			img.getRGB(0, 0, w, h, result.pixels, 0, w);
-			System.out.println(result.pixels[0]);
 			for(int i = 0; i < result.pixels.length; i++){
 				int src = result.pixels[i];
 				if(src == 0 || src == 16777215){
