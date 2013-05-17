@@ -1,4 +1,4 @@
-package com.dddbomber.fishingjam.fish;
+package com.dddbomber.fishingjam.instance.fish;
 
 import com.dddbomber.fishingjam.assets.*;
 

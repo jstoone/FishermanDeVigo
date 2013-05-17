@@ -2,8 +2,8 @@ package com.dddbomber.fishingjam.menu;
 
 import com.dddbomber.fishingjam.assets.Asset;
 import com.dddbomber.fishingjam.assets.Screen;
-import com.dddbomber.fishingjam.fish.Fish;
 import com.dddbomber.fishingjam.input.InputHandler;
+import com.dddbomber.fishingjam.instance.fish.Fish;
 
 public class FishingMenu extends Menu{
 	
