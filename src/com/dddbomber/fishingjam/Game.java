@@ -15,6 +15,7 @@ import com.dddbomber.fishingjam.assets.Asset;
 import com.dddbomber.fishingjam.assets.AssetLoader;
 import com.dddbomber.fishingjam.assets.Screen;
 import com.dddbomber.fishingjam.input.InputHandler;
+import com.dddbomber.fishingjam.menu.Menu;
 
 public class Game extends Canvas implements Runnable{
 	private static final long serialVersionUID = 1L;
@@ -68,26 +69,17 @@ public class Game extends Canvas implements Runnable{
 		
 		Graphics g = bs.getDrawGraphics();
 		
-		for(int i = 0; i < screen.pixels.length; i++){
-			screen.pixels[i] = 0;
-		}
-		
-		screen.drawScaled(Asset.test, 0, 0, 0, 0, WIDTH, HEIGHT, xScale, yScale);
+		if(Menu.menu != null)Menu.menu.render(screen, input);
 		
 		g.drawImage(screen.getImage(), 0, 0, getWidth(), getHeight(), null);
 		
 		g.dispose();
 		bs.show();
 	}
-	
-	public double xScale, yScale;
 
 	private void tick() {
 		ticks++;
-		if(input.keyboard.keys[KeyEvent.VK_DOWN])yScale += 0.01;
-		if(input.keyboard.keys[KeyEvent.VK_UP])yScale -= 0.01;
-		if(input.keyboard.keys[KeyEvent.VK_RIGHT])xScale += 0.01;
-		if(input.keyboard.keys[KeyEvent.VK_LEFT])xScale -= 0.01;
+		if(Menu.menu != null)Menu.menu.tick(input);
 	}
 	
 	public static void main(String[] args){
