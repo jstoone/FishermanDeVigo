@@ -5,7 +5,7 @@ import com.dddbomber.fishingjam.input.InputHandler;
 
 public abstract class Menu {
 	
-	public static Menu menu = new TestMenu();
+	public static Menu menu = new FishingMenu();
 	
 	public abstract void tick(InputHandler input);
 	
