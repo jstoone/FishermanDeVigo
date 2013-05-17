@@ -35,10 +35,10 @@ public class Screen extends Bitmap{
 		w *= xScale;
 		h *= yScale;
 		for(int y = 0; y < h; y++){
-			int yPix = y+yPos;
+			int yPix = y+yPos-h/2;
 			if(yPix < 0 || yPix >= height)continue;
 			for(int x = 0; x < w; x++){
-				int xPix = x+xPos;
+				int xPix = x+xPos-w/2;
 				if(xPix < 0 || xPix >= width)continue;
 
 				int xDraw = (int) (x/xScale+xo);

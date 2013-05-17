@@ -18,11 +18,9 @@ public class TestMenu extends Menu{
 	}
 
 	public void render(Screen screen, InputHandler input) {
-		for(int i = 0; i < screen.pixels.length; i++){
-			screen.pixels[i] = 0;
-		}
+		screen.draw(Asset.map, 0, 0, 0, 0, 600, 400);
 		
-		screen.drawScaled(Asset.test, input.mouse.x, input.mouse.y, 0, 0, 256, 100, xScale, yScale);
+		screen.drawScaled(Asset.salmon, input.mouse.x, input.mouse.y, 0, 0, 256, 100, xScale, yScale);
 	}
 
 }
