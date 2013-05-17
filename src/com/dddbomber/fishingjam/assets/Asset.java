@@ -5,4 +5,6 @@ public class Asset {
 	public static Bitmap map = AssetLoader.loadBitmap("/textures/map/map.png");
 
 	public static Bitmap buttons = AssetLoader.loadBitmap("/textures/gui/buttons.png");
+	public static Bitmap bg = AssetLoader.loadBitmap("/textures/gui/bg.png");
+	public static Bitmap sun = AssetLoader.loadBitmap("/textures/gui/sun.png");
 }

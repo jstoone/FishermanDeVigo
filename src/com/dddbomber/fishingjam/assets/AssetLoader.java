@@ -15,7 +15,7 @@ public class AssetLoader {
 			System.out.println(result.pixels[0]);
 			for(int i = 0; i < result.pixels.length; i++){
 				int src = result.pixels[i];
-				if(src == 0){
+				if(src == 0 || src == 16777215){
 					src = -2;
 				}
 				result.pixels[i] = src;

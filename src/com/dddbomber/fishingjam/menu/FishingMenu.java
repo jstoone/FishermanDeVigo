@@ -20,10 +20,19 @@ public class FishingMenu extends Menu{
 				}
 			}
 		}
+		time++;
+		if(time > 7200)time = 0;
 	}
+	
+	public int time;
 
 	public void render(Screen screen, InputHandler input) {
-		for(int i = 0; i < screen.pixels.length; i++)screen.pixels[i] = 0;
+		screen.drawScaled(Asset.bg, 300, 100, 0, time/8, 1, 50, 600, 4);
+		if(time < 496){
+			screen.draw(Asset.sun, 300-24, 200-time/3, 0, 0, 48, 48);
+		}
+		screen.drawFlipped(screen, 0, 200, 0, 0, 600, 200);
+		
 		fish.render(screen);
 		
 		screen.draw(Asset.buttons, 0, 368, 0, 0, 32, 32);
