@@ -26,7 +26,7 @@ public class Screen extends Bitmap{
 				if(xPix < 0 || xPix >= width)continue;
 				
 				int src = image.pixels[(x+xo) + (y+yo) * image.width];
-				if(src != -1)pixels[xPix + yPix * width] = src;
+				if(src != -2)pixels[xPix + yPix * width] = src;
 			}
 		}
 	}
@@ -44,7 +44,7 @@ public class Screen extends Bitmap{
 				int xDraw = (int) (x/xScale+xo);
 				int yDraw = (int) (y/yScale+yo);
 				int src = image.pixels[(int) (xDraw + yDraw * image.width)];
-				if(src != -1)pixels[xPix + yPix * width] = src;
+				if(src != -2)pixels[xPix + yPix * width] = src;
 			}
 		}
 	}

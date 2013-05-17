@@ -14,8 +14,8 @@ public class AssetLoader {
 			img.getRGB(0, 0, w, h, result.pixels, 0, w);
 			for(int i = 0; i < result.pixels.length; i++){
 				int src = result.pixels[i];
-				if(src == 0){
-					src = -1;
+				if(src == 16777215){
+					src = -2;
 				}
 				result.pixels[i] = src;
 			}

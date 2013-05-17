@@ -22,7 +22,7 @@ public class TestMenu extends Menu{
 			screen.pixels[i] = 0;
 		}
 		
-		screen.drawScaled(Asset.test, input.mouse.x, input.mouse.y, 0, 0, Game.WIDTH, Game.HEIGHT, xScale, yScale);
+		screen.drawScaled(Asset.test, input.mouse.x, input.mouse.y, 0, 0, 256, 100, xScale, yScale);
 	}
 
 }
