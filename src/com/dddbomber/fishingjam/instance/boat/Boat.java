@@ -16,6 +16,8 @@ public class Boat {
 	public static final Boat anglersVessel = new Boat("Anglers Vessel", 1, 3);
 	public static final Boat fishersVessel = new Boat("Fishers Vessel", 2, 3);
 	public static final Boat castersVessel = new Boat("Casters Vessel", 3, 3);
+
+	public static final Boat trawler = new Boat("Trawler", 4, 3);
 	
 	public String name;
 	public int capacity, speed;
