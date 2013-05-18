@@ -37,6 +37,7 @@ public class FishingMenu extends Menu{
 			a.tick(input);
 		}
 		if(time % 30 == 0 && random.nextBoolean())Animation.animations.add(new FishJumpAnimation(100+random.nextInt(200), 200+random.nextInt(180)));
+		if(time % 10 != 0)return;
 	}
 	
 	public int time;
@@ -57,7 +58,7 @@ public class FishingMenu extends Menu{
 		
 
 		//screen.fill(0, 200, 600, 200, 0xbcbcff, 100);
-		screen.draw(Asset.smallRowboat, 172, 80, 0, 0, 256, 128);
+		screen.draw(Asset.smallRowboat, 172, 85, 0, 0, 256, 128);
 		
 		screen.drawFlipped(screen, 0, 200, 0, 0, 600, 200, 100);
 
