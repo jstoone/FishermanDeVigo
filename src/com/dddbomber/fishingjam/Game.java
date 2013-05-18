@@ -2,17 +2,13 @@ package com.dddbomber.fishingjam;
 
 import java.awt.BorderLayout;
 import java.awt.Canvas;
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
-import java.awt.event.KeyEvent;
 import java.awt.image.BufferStrategy;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import com.dddbomber.fishingjam.assets.Asset;
-import com.dddbomber.fishingjam.assets.AssetLoader;
 import com.dddbomber.fishingjam.assets.Screen;
 import com.dddbomber.fishingjam.input.InputHandler;
 import com.dddbomber.fishingjam.instance.family.Person;

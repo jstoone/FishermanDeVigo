@@ -1,12 +1,8 @@
 package com.dddbomber.fishingjam.menu;
 
-import java.awt.event.KeyEvent;
-
 import com.dddbomber.fishingjam.assets.Asset;
 import com.dddbomber.fishingjam.assets.Screen;
 import com.dddbomber.fishingjam.input.InputHandler;
-import com.dddbomber.fishingjam.instance.Instance;
-import com.dddbomber.fishingjam.instance.family.Person;
 import com.dddbomber.fishingjam.news.News;
 
 public class NewspaperMenu extends Menu{
@@ -26,18 +22,23 @@ public class NewspaperMenu extends Menu{
 				play = true;
 			}
 		}
-		if(input.mouse.left && play){
+		if(input.mouse.left && play && yOffset == 0){
 			Menu.menu = new FishingMenu();
 		}
+		if(yOffset > 0)yOffset-=5;
 	}
+	
+	public int yOffset = 300;
 
 	public void render(Screen screen, InputHandler input) {
 		screen.fill(0, 0, 600, 400, 0, 100);
-		screen.drawScaled(Asset.newspaper, 300, 250, 0, 0, 80, 60, 5, 5);
+		screen.drawScaled(Asset.newspaper, 300, 250+yOffset, 0, 0, 80, 60, 5, 5);
 		
-		screen.draw(date, 110, 110, 0x725C45, 1.5);
+		screen.draw(date, 110, 110+yOffset, 0x725C45, 1.5);
 		
-		screen.draw(headline, 300-headline.length()*7, 138, 0x725C45, 2);
+		screen.draw(headline, 300-headline.length()*7, 138+yOffset, 0x725C45, 2);
+		
+		if(yOffset != 0)return;
 		
 		screen.drawScaled(Asset.title, 300, 40, 0, play ? 50 : 0, 200, 50, 2, 1);
 		

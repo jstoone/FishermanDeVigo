@@ -1,16 +1,13 @@
 package com.dddbomber.fishingjam.menu;
 
-import java.awt.event.KeyEvent;
-import java.util.ArrayList;
 import java.util.Random;
 
 import com.dddbomber.fishingjam.anim.Animation;
 import com.dddbomber.fishingjam.anim.FishJumpAnimation;
 import com.dddbomber.fishingjam.assets.Asset;
-import com.dddbomber.fishingjam.assets.Bitmap;
 import com.dddbomber.fishingjam.assets.Screen;
 import com.dddbomber.fishingjam.input.InputHandler;
-import com.dddbomber.fishingjam.instance.fish.Fish;
+import com.dddbomber.fishingjam.instance.Instance;
 import com.dddbomber.fishingjam.news.News;
 
 public class MainMenu extends Menu{
@@ -25,7 +22,7 @@ public class MainMenu extends Menu{
 			}
 		}
 		if(input.mouse.left){
-			if(play)Menu.menu = new NewspaperMenu(News.start);
+			if(play)Instance.getInstance().nextDay();
 		}
 		for(int i = 0; i < Animation.animations.size(); i++){
 			Animation a = Animation.animations.get(i);

@@ -5,6 +5,10 @@ import java.util.ArrayList;
 import com.dddbomber.fishingjam.instance.boat.Boat;
 import com.dddbomber.fishingjam.instance.equipment.Equipment;
 import com.dddbomber.fishingjam.instance.family.Person;
+import com.dddbomber.fishingjam.menu.FamilyMenu;
+import com.dddbomber.fishingjam.menu.Menu;
+import com.dddbomber.fishingjam.menu.NewspaperMenu;
+import com.dddbomber.fishingjam.news.News;
 
 public class Instance {
 	private static Instance instance;
@@ -26,6 +30,10 @@ public class Instance {
 		
 		selectedBoat = Boat.rowboat2;
 		selectedEquipment = Equipment.smallRod;
+	}
+	
+	public void nextDay(){
+		Menu.menu = new FamilyMenu(new NewspaperMenu(News.newsList[day++]));
 	}
 	
 	public int day = 0;

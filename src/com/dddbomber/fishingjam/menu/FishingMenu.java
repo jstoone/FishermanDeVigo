@@ -1,13 +1,11 @@
 package com.dddbomber.fishingjam.menu;
 
 import java.awt.event.KeyEvent;
-import java.util.ArrayList;
 import java.util.Random;
 
 import com.dddbomber.fishingjam.anim.Animation;
 import com.dddbomber.fishingjam.anim.FishJumpAnimation;
 import com.dddbomber.fishingjam.assets.Asset;
-import com.dddbomber.fishingjam.assets.Bitmap;
 import com.dddbomber.fishingjam.assets.Screen;
 import com.dddbomber.fishingjam.input.InputHandler;
 import com.dddbomber.fishingjam.instance.Instance;
@@ -30,7 +28,7 @@ public class FishingMenu extends Menu{
 		}
 		time++;
 		if(input.keyboard.keys[KeyEvent.VK_SPACE]){
-			time += 7;
+			time += 15;
 		}
 		if(time >= 6800)endDay();
 		for(int i = 0; i < Animation.animations.size(); i++){
@@ -46,7 +44,7 @@ public class FishingMenu extends Menu{
 	Random random = new Random();
 	
 	public void endDay(){
-		time = 0;
+		Instance.getInstance().nextDay();
 	}
 	
 	public String getTime(){
