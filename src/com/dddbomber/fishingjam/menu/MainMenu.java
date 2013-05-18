@@ -13,17 +13,18 @@ import com.dddbomber.fishingjam.input.InputHandler;
 import com.dddbomber.fishingjam.instance.fish.Fish;
 
 public class MainMenu extends Menu{
-	
+
+	public boolean play;
+
 	public void tick(InputHandler input) {
-		if(input.mouse.left){
-			if(input.mouse.y >= 368){
-				if(input.mouse.x <= 32){
-					System.out.println("NO");
-				}
-				if(input.mouse.x >= 568){
-					System.out.println("YES");
-				}
+		play = false;
+		if(input.mouse.y >= 315 && input.mouse.y <= 365){
+			if(input.mouse.x >= 200 && input.mouse.x <= 400){
+				play = true;
 			}
+		}
+		if(input.mouse.left){
+			if(play)Menu.menu = new FishingMenu();
 		}
 		for(int i = 0; i < Animation.animations.size(); i++){
 			Animation a = Animation.animations.get(i);
@@ -31,6 +32,8 @@ public class MainMenu extends Menu{
 		}
 		animTime++;
 		if(random.nextInt(30) == 0 && random.nextBoolean())Animation.animations.add(new FishJumpAnimation(100+random.nextInt(300), 200+random.nextInt(180)));
+
+		
 	}
 	
 	public int time = 6450, animTime;
@@ -82,7 +85,7 @@ public class MainMenu extends Menu{
 		screen.draw(msg, 300-msg.length()*14, 24, 0, 4);
 		
 
-		screen.drawScaled(Asset.title, 300, 340, 0, 0, 200, 50, 1, 1);
+		screen.drawScaled(Asset.title, 300, 340, 0, play ? 50 : 0, 200, 50, 1, 1);
 		
 		msg = "Play";
 		screen.draw(msg, 300-msg.length()*14, 329, 0, 4);
