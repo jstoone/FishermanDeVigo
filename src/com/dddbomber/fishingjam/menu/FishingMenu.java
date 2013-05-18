@@ -3,6 +3,7 @@ package com.dddbomber.fishingjam.menu;
 import java.util.ArrayList;
 
 import com.dddbomber.fishingjam.assets.Asset;
+import com.dddbomber.fishingjam.assets.Bitmap;
 import com.dddbomber.fishingjam.assets.Screen;
 import com.dddbomber.fishingjam.input.InputHandler;
 import com.dddbomber.fishingjam.instance.fish.Fish;
@@ -36,6 +37,11 @@ public class FishingMenu extends Menu{
 			System.out.println(time/3-6312);
 			screen.draw(Asset.sun, 300-48, (time-6312)/3, 0, 0, 96, 96);
 		}
+		
+		screen.draw(Asset.smallRowboat, 300-96, 155, 0, 0, 192, 64);
+
+		screen.fill(0, 200, 600, 200, 0xbcbcff, 100);
+		
 		screen.drawFlipped(screen, 0, 200, 0, 0, 600, 200);
 
 		for(int x = -2; x < 7; x++){
@@ -43,6 +49,8 @@ public class FishingMenu extends Menu{
 				screen.drawTrans(Asset.wave, x*100+11  + time%100 + y%2*50, y*50+11 + 200, 0, 0, 77, 12, 25);
 			}
 		}
+
+		screen.blur(0, 200, 600, 400);
 		
 		screen.fill(0, 200, 600, 200, 0xbcbcff, 25);
 		

@@ -7,6 +7,12 @@ import com.dddbomber.fishingjam.instance.equipment.Equipment;
 import com.dddbomber.fishingjam.instance.family.Person;
 
 public class Instance {
+	private static Instance instance;
+	public static Instance getInstance(){
+		if(instance != null)return instance;
+		instance = new Instance();
+		return instance;
+	}
 	
 	public Instance(){
 		//YOU
@@ -17,6 +23,9 @@ public class Instance {
 		family.add(new Person(true, false, "Frederico Pescadoado"));
 		//DAUGHTER
 		family.add(new Person(false, false, "Adelita Pescadoado"));
+		
+		selectedBoat = Boat.rowboat;
+		selectedEquipment = Equipment.smallRod;
 	}
 	
 	public int day = 0;
