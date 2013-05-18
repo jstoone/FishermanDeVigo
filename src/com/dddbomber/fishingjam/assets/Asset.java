@@ -7,8 +7,9 @@ public class Asset {
 	public static Bitmap buttons = AssetLoader.loadBitmap("/textures/gui/buttons.png");
 	public static Bitmap bg = AssetLoader.loadBitmap("/textures/gui/bg.png");
 	public static Bitmap sun = AssetLoader.loadBitmap("/textures/gui/sun.png");
-
 	public static Bitmap wave = AssetLoader.loadBitmap("/textures/gui/wave.png");
+	public static Bitmap counter = AssetLoader.loadBitmap("/textures/gui/counter.png");
+	public static Bitmap cloud = AssetLoader.loadBitmap("/textures/gui/cloud.png");
 
 	public static Bitmap smallRowboat = AssetLoader.loadBitmap("/textures/boat/smallRowboat.png");
 	public static Bitmap fishAnim = AssetLoader.loadBitmap("/textures/anims/fish.png");

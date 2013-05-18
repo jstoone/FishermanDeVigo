@@ -36,7 +36,7 @@ public class FishingMenu extends Menu{
 			Animation a = Animation.animations.get(i);
 			a.tick(input);
 		}
-		if(time % 30 == 0 && random.nextBoolean())Animation.animations.add(new FishJumpAnimation(100+random.nextInt(200), 200+random.nextInt(180)));
+		if(time % 30 == 0 && random.nextBoolean())Animation.animations.add(new FishJumpAnimation(100+random.nextInt(300), 200+random.nextInt(180)));
 		if(time % 10 != 0)return;
 	}
 	
@@ -58,13 +58,15 @@ public class FishingMenu extends Menu{
 		
 
 		//screen.fill(0, 200, 600, 200, 0xbcbcff, 100);
-		screen.draw(Asset.smallRowboat, 172, 85, 0, 0, 256, 128);
+		screen.draw(Asset.smallRowboat, 172, 85, 0, 128*((time/5)%8), 256, 128);
 		
 		screen.drawFlipped(screen, 0, 200, 0, 0, 600, 200, 100);
 
 		for(int x = -2; x < 7; x++){
+			screen.drawTrans(Asset.cloud, x*200+time%200, 20, 0, 0, 96, 32, 75);
 			for(int y = 0; y < 4; y++){
-				screen.drawTrans(Asset.wave, x*100+11  + time%100 + y%2*50, y*50+11 + 200, 0, 0, 77, 12, 25);
+				int anim = (time/10+x+y)%10;
+				screen.drawTrans(Asset.wave, x*100+11  + time%100 + y%2*50, y*50+11 + 200, 0, 16*(anim), 77, 16, 25);
 			}
 		}
 
@@ -77,6 +79,8 @@ public class FishingMenu extends Menu{
 		//screen.blur(0, 200, 600, 400);
 		
 		screen.fill(0, 200, 600, 200, 0xbcbcff, 25);
+		
+		screen.draw("Fisherman De Vigo", 2, 2, 0, 2);
 		
 		//fish.render(screen);
 		

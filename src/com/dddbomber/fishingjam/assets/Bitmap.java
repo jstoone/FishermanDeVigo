@@ -10,6 +10,11 @@ public class Bitmap {
 		this.pixels = new int[width * height];
 	}
 	
+	public static String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" +
+			"1234567890";
+	
+	public static Bitmap font = AssetLoader.loadBitmap("/textures/chars.png");
+	
 	public void draw(Bitmap image, int xPos, int yPos, int xo, int yo, int w , int h){
 		for(int y = 0; y < h; y++){
 			int yPix = y+yPos;
@@ -88,6 +93,36 @@ public class Bitmap {
 
             }
         }
+    }
+	
+	public void draw(String string, int x, int y, int col, double scale) {
+		string = string.toUpperCase();
+        for (int i = 0; i < string.length(); i++) {
+            int ch = chars.indexOf(string.charAt(i));
+            if (ch < 0) continue;
+
+            int xx = ch % 26;
+            int yy = ch / 26;
+            drawScaledString(font, x +(int)(i*7*scale), y, xx * 7, yy * 6, 7, 6, col, scale);
+        }
+    }
+	
+	public void drawScaledString(Bitmap image, int xPos, int yPos, int xo, int yo, int w, int h, int col, double scale) {
+		w *= scale;
+		h *= scale;
+		for(int y = 0; y < h; y++){
+			int yPix = y+yPos;
+			if(yPix < 0 || yPix >= height)continue;
+			for(int x = 0; x < w; x++){
+				int xPix = x+xPos;
+				if(xPix < 0 || xPix >= width)continue;
+
+				int xDraw = (int) (x/scale+xo);
+				int yDraw = (int) (y/scale+yo);
+				int src = image.pixels[(int) (xDraw + yDraw * image.width)];
+				if(src != 0xffffffff)pixels[xPix + yPix * width] = col;
+			}
+		}
     }
 	
 	public void drawTrans(Bitmap image, int xPos, int yPos, int xo, int yo, int w , int h, int amount){
