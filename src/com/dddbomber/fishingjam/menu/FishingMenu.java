@@ -83,10 +83,10 @@ public class FishingMenu extends Menu{
 
 		screen.drawFlipped(screen, 0, 200, 0, 0, 600, 200, 100);
 
-		for(int x = -2; x < 7; x++){
+		for(int x = -1; x < 3; x++){
 			for(int y = 0; y < 4; y++){
 				int anim = (time/10+x+y)%10;
-				screen.drawTrans(Asset.wave, x*100+11  + time%100 + y%2*50, y*50+11 + 200, 0, 16*(anim), 77, 16, 25);
+				screen.drawTrans(Asset.wave, x*200+11  + time%200 + y%2*100, y*50+11 + 200, 0, 16*(anim), 77, 16, 25);
 			}
 		}
 
