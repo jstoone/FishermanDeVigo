@@ -31,14 +31,14 @@ public class FishingMenu extends Menu{
 
 	public void render(Screen screen, InputHandler input) {
 		screen.drawScaled(Asset.bg, 300, 100, 0, time/8, 1, 50, 600, 4);
-		if(time < 888){
-			screen.draw(Asset.sun, 300-48, 200-time/3, 0, 0, 96, 96);
+		if(time < 1038){
+			screen.draw(Asset.sun, 300-48, 250-time/3, 0, 0, 96, 96);
 		}if(time > 6212){
 			System.out.println(time/3-6312);
 			screen.draw(Asset.sun, 300-48, (time-6312)/3, 0, 0, 96, 96);
 		}
 		
-		screen.draw(Asset.smallRowboat, 300-96, 155, 0, 0, 192, 64);
+		screen.draw(Asset.smallRowboat, 300-96, 80, 0, 0, 256, 128);
 
 		screen.fill(0, 200, 600, 200, 0xbcbcff, 100);
 		
@@ -50,7 +50,8 @@ public class FishingMenu extends Menu{
 			}
 		}
 
-		screen.blur(0, 200, 600, 400);
+		//TODO This causes a lot of unnecesary processing screen blur needs redoing
+		//screen.blur(0, 200, 600, 400);
 		
 		screen.fill(0, 200, 600, 200, 0xbcbcff, 25);
 		

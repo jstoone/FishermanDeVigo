@@ -10,12 +10,12 @@ public class Bitmap {
 		this.pixels = new int[width * height];
 	}
 	
-	public void draw(Bitmap image, int xPos, int yPos, int xo, int yo, int w , int h){
+	public void draw(Bitmap image, int xp, int yPos, int xo, int yo, int w , int h){
 		for(int y = 0; y < h; y++){
 			int yPix = y+yPos;
 			if(yPix < 0 || yPix >= height)continue;
 			for(int x = 0; x < w; x++){
-				int xPix = x+xPos;
+				int xPix = x+xp;
 				if(xPix < 0 || xPix >= width)continue;
 				
 				int src = image.pixels[(x+xo) + (y+yo) * image.width];
@@ -24,12 +24,12 @@ public class Bitmap {
 		}
 	}
 	
-	public void drawFlipped(Bitmap image, int xPos, int yPos, int xo, int yo, int w , int h){
+	public void drawFlipped(Bitmap image, int xp, int yPos, int xo, int yo, int w , int h){
 		for(int y = 0; y < h; y++){
 			int yPix = y+yPos;
 			if(yPix < 0 || yPix >= height)continue;
 			for(int x = 0; x < w; x++){
-				int xPix = x+xPos;
+				int xPix = x+xp;
 				if(xPix < 0 || xPix >= width)continue;
 				
 				int src = image.pixels[(x+xo) + (h-y+yo) * image.width];
@@ -38,14 +38,14 @@ public class Bitmap {
 		}
 	}
 	
-	public void drawScaled(Bitmap image, int xPos, int yPos, int xo, int yo, int w , int h, double xScale, double yScale){
+	public void drawScaled(Bitmap image, int xp, int yPos, int xo, int yo, int w , int h, double xScale, double yScale){
 		w *= xScale;
 		h *= yScale;
 		for(int y = 0; y < h; y++){
 			int yPix = y+yPos-h/2;
 			if(yPix < 0 || yPix >= height)continue;
 			for(int x = 0; x < w; x++){
-				int xPix = x+xPos-w/2;
+				int xPix = x+xp-w/2;
 				if(xPix < 0 || xPix >= width)continue;
 
 				int xDraw = (int) (x/xScale+xo);
@@ -88,12 +88,12 @@ public class Bitmap {
         }
     }
 	
-	public void drawTrans(Bitmap image, int xPos, int yPos, int xo, int yo, int w , int h, int amount){
+	public void drawTrans(Bitmap image, int xp, int yPos, int xo, int yo, int w , int h, int amount){
 		for(int y = 0; y < h; y++){
 			int yPix = y+yPos;
 			if(yPix < 0 || yPix >= height)continue;
 			for(int x = 0; x < w; x++){
-				int xPix = x+xPos;
+				int xPix = x+xp;
 				if(xPix < 0 || xPix >= width)continue;
 
 				int src = image.pixels[(x+xo) + (y+yo) * image.width];
@@ -103,13 +103,13 @@ public class Bitmap {
 		}
 	}
 	
-	public void fill(int xPos, int yPos, int w, int h, int col, int amount){
+	public void fill(int xp, int yPos, int w, int h, int col, int amount){
 		for(int y = 0; y < h; y++){
 			int yPix = y+yPos;
 			if(yPix < 0 || yPix >= height)continue;
 			
 			for(int x = 0; x < w; x++){
-				int xPix = x+xPos;
+				int xPix = x+xp;
 				if(xPix < 0 || xPix >= width)continue;
 				int merged = merge(col, pixels[xPix + yPix * width], amount);
 				pixels[xPix + yPix * width] = merged;
@@ -137,13 +137,13 @@ public class Bitmap {
         return tr << 16 | tg << 8 | tb;
     }
 
-	public void blur(int xPos, int yPos, int w, int h) {
+	public void blur(int xp, int yPos, int w, int h) {
 		for(int y = 0; y < h; y++){
 			int yPix = y+yPos;
 			if(yPix < 0 || yPix >= height-1)continue;
 			if(y% 3 == 0)continue;
 			for(int x = 0; x < w; x++){
-				int xPix = x+xPos;
+				int xPix = x+xp;
 				if(xPix < 0 || xPix >= width-3)continue;
 				int merged = merge(pixels[xPix + 1 + yPix * width], pixels[xPix + yPix * width], 75);
 				merged = merge(pixels[xPix + 2 + yPix * width], merged, 75);
