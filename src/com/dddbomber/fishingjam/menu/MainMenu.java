@@ -77,7 +77,7 @@ public class MainMenu extends Menu{
 		}
 		screen.fill(0, 200, 600, 2, 0x79AEEA, 100);
 
-		screen.fill(0, 200, 600, 200, 0xbcbcff, 25);
+		screen.fill(0, 200, 600, 200, 0xbcbcff, 35);
 
 		screen.drawScaled(Asset.title, 300, 35, 0, 0, 200, 50, 2.5, 1);
 		

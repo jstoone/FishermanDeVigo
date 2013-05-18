@@ -10,6 +10,7 @@ import com.dddbomber.fishingjam.assets.Asset;
 import com.dddbomber.fishingjam.assets.Bitmap;
 import com.dddbomber.fishingjam.assets.Screen;
 import com.dddbomber.fishingjam.input.InputHandler;
+import com.dddbomber.fishingjam.instance.Instance;
 import com.dddbomber.fishingjam.instance.fish.Fish;
 
 public class FishingMenu extends Menu{
@@ -72,7 +73,7 @@ public class FishingMenu extends Menu{
 		
 
 		//screen.fill(0, 200, 600, 200, 0xbcbcff, 100);
-		screen.draw(Asset.smallRowboat, 172, 85, 0, 128*((time/5)%8), 256, 128);
+		screen.draw(Instance.getInstance().selectedBoat.render, 172, 85, 0, 128*((time/5)%8), 256, 128);
 		for(int x = -2; x < 7; x++){
 			int xo = x;
 			while(xo < 0)xo += 2;
@@ -101,11 +102,10 @@ public class FishingMenu extends Menu{
 		}
 		screen.fill(0, 200, 600, 2, 0x79AEEA, 100);
 
-		screen.fill(0, 200, 600, 200, 0xbcbcff, 25);
+		screen.fill(0, 200, 600, 200, 0xbcbcff, 35);
 		
 		screen.draw(getTime(), 2, 2, 0, 2);
 		
-		//fish.render(screen);
 		
 		screen.draw(Asset.buttons, 0, 368, 0, 0, 32, 32);
 		screen.draw(Asset.buttons, 568, 368, 32, 0, 32, 32);

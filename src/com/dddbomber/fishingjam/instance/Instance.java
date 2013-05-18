@@ -24,7 +24,7 @@ public class Instance {
 		//DAUGHTER
 		family.add(new Person(false, false, "Adelita Pescadoado"));
 		
-		selectedBoat = Boat.rowboat;
+		selectedBoat = Boat.rowboat2;
 		selectedEquipment = Equipment.smallRod;
 	}
 	

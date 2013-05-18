@@ -4,10 +4,10 @@ import java.awt.event.KeyEvent;
 
 import com.dddbomber.fishingjam.assets.Screen;
 import com.dddbomber.fishingjam.input.InputHandler;
+import com.dddbomber.fishingjam.news.News;
 
 public abstract class Menu {
-	
-	public static Menu menu = new MainMenu();
+	public static Menu menu = new NewspaperMenu(News.fish);
 	
 	public abstract void tick(InputHandler input);
 	

@@ -1,9 +1,12 @@
 package com.dddbomber.fishingjam.instance.boat;
 
+import com.dddbomber.fishingjam.assets.Asset;
+import com.dddbomber.fishingjam.assets.Bitmap;
+
 public class Boat {
 
-	public static final Boat rowboat = new Boat("Rowboat", 1, 1);
-	public static final Boat rowboat2 = new Boat("Rowboat", 2, 1);
+	public static final Boat rowboat = new Boat("Rowboat", 1, 1).setRender(Asset.smallRowboat);
+	public static final Boat rowboat2 = new Boat("Rowboat", 2, 1).setRender(Asset.bigRowboat);
 	
 	public static final Boat anglersBoat = new Boat("Anglers Boat", 1, 2);
 	public static final Boat fishersBoat = new Boat("Fishers Boat", 2, 2);
@@ -26,5 +29,12 @@ public class Boat {
 		this.name = name;
 		this.capacity = capacity;
 		this.speed = speed;
+	}
+	
+	public Bitmap render;
+	
+	public Boat setRender(Bitmap render){
+		this.render = render;
+		return this;
 	}
 }
