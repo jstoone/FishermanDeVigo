@@ -83,6 +83,11 @@ public class FishingMenu extends Menu{
 
 		screen.drawFlipped(screen, 0, 200, 0, 0, 600, 200, 100);
 
+		for(int i = 0; i < 100; i++){
+			int yo = i*2;
+			screen.drawScaled(screen, 300, yo+200+1, 0, yo+200, 600, 1, 0.950+yo*0.0005, 1);
+		}
+		
 		for(int x = -1; x < 3; x++){
 			for(int y = 0; y < 4; y++){
 				int anim = (time/10+x+y)%10;
@@ -94,9 +99,6 @@ public class FishingMenu extends Menu{
 			Animation a = Animation.animations.get(i);
 			a.render(screen);
 		}
-
-		//TODO This causes a lot of unnecesary processing screen blur needs redoing
-		//screen.blur(0, 200, 600, 400);
 		
 		screen.fill(0, 200, 600, 200, 0xbcbcff, 25);
 		
