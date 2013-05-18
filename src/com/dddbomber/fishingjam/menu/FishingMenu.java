@@ -1,5 +1,6 @@
 package com.dddbomber.fishingjam.menu;
 
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -27,6 +28,9 @@ public class FishingMenu extends Menu{
 			}
 		}
 		time++;
+		if(input.keyboard.keys[KeyEvent.VK_SPACE]){
+			time += 7;
+		}
 		if(time >= 6800)endDay();
 		for(int i = 0; i < Animation.animations.size(); i++){
 			Animation a = Animation.animations.get(i);
@@ -48,7 +52,7 @@ public class FishingMenu extends Menu{
 		if(time < 1038){
 			screen.draw(Asset.sun, 300-48, 250-time/3, 0, 0, 96, 96);
 		}if(time > 6162){
-			screen.draw(Asset.sun, 300-48, (time-6162)/3, 0, 0, 96, 96);
+			screen.draw(Asset.sun, 300-48, 200+(6162-time)/3, 96, 0, 96, 96);
 		}
 		
 
