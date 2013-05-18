@@ -11,7 +11,7 @@ public class Bitmap {
 	}
 	
 	public static String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" +
-			"1234567890";
+			"1234567890:";
 	
 	public static Bitmap font = AssetLoader.loadBitmap("/textures/chars.png");
 	
