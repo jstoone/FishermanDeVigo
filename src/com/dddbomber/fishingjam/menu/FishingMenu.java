@@ -84,7 +84,7 @@ public class FishingMenu extends Menu{
 		screen.drawFlipped(screen, 0, 200, 0, 0, 600, 200, 100);
 
 		for(int i = 0; i < 100; i++){
-			int yo = i*2;
+			int yo = i*2+(time%10 < 5 ? 1 : 0);
 			screen.drawScaled(screen, 300, yo+200+1, 0, yo+200, 600, 1, 0.950+yo*0.0005, 1);
 		}
 		
@@ -99,7 +99,8 @@ public class FishingMenu extends Menu{
 			Animation a = Animation.animations.get(i);
 			a.render(screen);
 		}
-		
+		screen.fill(0, 200, 600, 2, 0x79AEEA, 100);
+
 		screen.fill(0, 200, 600, 200, 0xbcbcff, 25);
 		
 		screen.draw(getTime(), 2, 2, 0, 2);
