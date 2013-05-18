@@ -27,7 +27,7 @@ public class FishingMenu extends Menu{
 			}
 		}
 		time++;
-		if(time > 7200)time = 0;
+		if(time >= 6800)endDay();
 		for(int i = 0; i < Animation.animations.size(); i++){
 			Animation a = Animation.animations.get(i);
 			a.tick(input);
@@ -39,13 +39,16 @@ public class FishingMenu extends Menu{
 
 	Random random = new Random();
 	
+	public void endDay(){
+		time = 0;
+	}
+	
 	public void render(Screen screen, InputHandler input) {
 		screen.drawScaled(Asset.bg, 300, 100, 0, time/8, 1, 50, 600, 4);
 		if(time < 1038){
 			screen.draw(Asset.sun, 300-48, 250-time/3, 0, 0, 96, 96);
-		}if(time > 6212){
-			System.out.println(time/3-6312);
-			screen.draw(Asset.sun, 300-48, (time-6312)/3, 0, 0, 96, 96);
+		}if(time > 6162){
+			screen.draw(Asset.sun, 300-48, (time-6162)/3, 0, 0, 96, 96);
 		}
 		
 
