@@ -43,6 +43,8 @@ public class Game extends Canvas implements Runnable{
 		
 		long lastSecond = System.currentTimeMillis();
 		
+		this.requestFocus();
+		
 		while(true){
 			long now = System.nanoTime();
 			time += (now - lastTime) / nsPerTick;
@@ -79,6 +81,7 @@ public class Game extends Canvas implements Runnable{
 	}
 
 	private void tick() {
+		if(!input.focus.hasFocus)return;
 		ticks++;
 		if(Menu.menu != null)Menu.menu.tick(input);
 	}

@@ -11,4 +11,5 @@ public class Asset {
 	public static Bitmap wave = AssetLoader.loadBitmap("/textures/gui/wave.png");
 
 	public static Bitmap smallRowboat = AssetLoader.loadBitmap("/textures/boat/smallRowboat.png");
+	public static Bitmap fishAnim = AssetLoader.loadBitmap("/textures/anims/fish.png");
 }
