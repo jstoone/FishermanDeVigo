@@ -58,12 +58,18 @@ public class FishingMenu extends Menu{
 		
 
 		//screen.fill(0, 200, 600, 200, 0xbcbcff, 100);
-		screen.draw(Asset.smallRowboat, 172, 85, 0, 128*((time/5)%8), 256, 128);
-		
+		screen.draw(Asset.bigRowboat, 172, 85, 0, 128*((time/5)%8), 256, 128);
+		for(int x = -2; x < 7; x++){
+			int xo = x;
+			while(xo < 0)xo += 2;
+			int trans = (time-6162)/3;
+			if(trans > 50)trans = 50;
+			screen.drawTrans(Asset.cloud, x*200-time%400, 20+(xo%2)*20, 0, 0, 96, 32, 50);
+		}
+
 		screen.drawFlipped(screen, 0, 200, 0, 0, 600, 200, 100);
 
 		for(int x = -2; x < 7; x++){
-			screen.drawTrans(Asset.cloud, x*200+time%200, 20, 0, 0, 96, 32, 75);
 			for(int y = 0; y < 4; y++){
 				int anim = (time/10+x+y)%10;
 				screen.drawTrans(Asset.wave, x*100+11  + time%100 + y%2*50, y*50+11 + 200, 0, 16*(anim), 77, 16, 25);
