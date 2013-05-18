@@ -33,6 +33,7 @@ public class FishingMenu extends Menu{
 		screen.drawScaled(Asset.bg, 300, 100, 0, time/8, 1, 50, 600, 4);
 		if(time < 1038){
 			screen.draw(Asset.sun, 300-48, 250-time/3, 0, 0, 96, 96);
+			screen.drawTrans(Asset.sun, 300-96, 202-time/3, 0, 96, 192, 192, 10);
 		}if(time > 6212){
 			System.out.println(time/3-6312);
 			screen.draw(Asset.sun, 300-48, (time-6312)/3, 0, 0, 96, 96);
