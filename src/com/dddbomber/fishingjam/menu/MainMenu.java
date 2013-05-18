@@ -11,6 +11,7 @@ import com.dddbomber.fishingjam.assets.Bitmap;
 import com.dddbomber.fishingjam.assets.Screen;
 import com.dddbomber.fishingjam.input.InputHandler;
 import com.dddbomber.fishingjam.instance.fish.Fish;
+import com.dddbomber.fishingjam.news.News;
 
 public class MainMenu extends Menu{
 
@@ -24,7 +25,7 @@ public class MainMenu extends Menu{
 			}
 		}
 		if(input.mouse.left){
-			if(play)Menu.menu = new FishingMenu();
+			if(play)Menu.menu = new NewspaperMenu(News.start);
 		}
 		for(int i = 0; i < Animation.animations.size(); i++){
 			Animation a = Animation.animations.get(i);
