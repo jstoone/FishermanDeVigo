@@ -58,7 +58,7 @@ public class FishingMenu extends Menu{
 		
 
 		//screen.fill(0, 200, 600, 200, 0xbcbcff, 100);
-		screen.draw(Asset.bigRowboat, 172, 85, 0, 128*((time/5)%8), 256, 128);
+		screen.draw(Asset.smallRowboat, 172, 85, 0, 128*((time/5)%8), 256, 128);
 		for(int x = -2; x < 7; x++){
 			int xo = x;
 			while(xo < 0)xo += 2;
