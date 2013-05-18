@@ -13,6 +13,7 @@ public class Asset {
 
 	public static Bitmap smallRowboat = AssetLoader.loadBitmap("/textures/boat/smallRowboat.png");
 	public static Bitmap bigRowboat = AssetLoader.loadBitmap("/textures/boat/bigRowboat.png");
-	
+
 	public static Bitmap fishAnim = AssetLoader.loadBitmap("/textures/anims/fish.png");
+	public static Bitmap splashAnim = AssetLoader.loadBitmap("/textures/anims/fish_splash.png");
 }

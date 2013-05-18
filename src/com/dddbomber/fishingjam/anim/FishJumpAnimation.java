@@ -20,6 +20,7 @@ public class FishJumpAnimation extends Animation{
 
 	public void render(Screen screen) {
 		screen.draw(Asset.fishAnim, x, y, 0, frame*12, 25, 12);
+		screen.draw(Asset.splashAnim, x, y, 0, frame*12, 25, 12);
 		screen.drawFlipped(Asset.fishAnim, x, y+12, 0, frame*12, 25, 12, 50);
 	}
 

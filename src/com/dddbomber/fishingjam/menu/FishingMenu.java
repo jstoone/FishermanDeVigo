@@ -48,6 +48,20 @@ public class FishingMenu extends Menu{
 		time = 0;
 	}
 	
+	public String getTime(){
+		int hour = time/425+6;
+		int minute = time%425/7;
+		String minuteString = "" +minute;
+		String hourString = "" +hour;
+		if(minute < 10){
+			minuteString = "0"+minute;
+		}
+		if(hour < 10){
+			hourString = "0"+hour;
+		}
+		return hourString +":" +minuteString;
+	}
+	
 	public void render(Screen screen, InputHandler input) {
 		screen.drawScaled(Asset.bg, 300, 100, 0, time/8, 1, 50, 600, 4);
 		if(time < 1038){
@@ -86,7 +100,7 @@ public class FishingMenu extends Menu{
 		
 		screen.fill(0, 200, 600, 200, 0xbcbcff, 25);
 		
-		screen.draw("Fisherman De Vigo", 2, 2, 0, 2);
+		screen.draw(getTime(), 2, 2, 0, 2);
 		
 		//fish.render(screen);
 		
