@@ -17,4 +17,5 @@ public class Asset {
 	public static Bitmap bigRowboat = AssetLoader.loadBitmap("/textures/boat/bigRowboat.png");
 
 	public static Bitmap fishAnim = AssetLoader.loadBitmap("/textures/anims/fish.png");
+	public static Bitmap birdAnim = AssetLoader.loadBitmap("/textures/anims/bird.png");
 }

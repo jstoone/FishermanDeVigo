@@ -4,6 +4,7 @@ import java.awt.event.KeyEvent;
 import java.util.Random;
 
 import com.dddbomber.fishingjam.anim.Animation;
+import com.dddbomber.fishingjam.anim.BirdAnimation;
 import com.dddbomber.fishingjam.anim.FishJumpAnimation;
 import com.dddbomber.fishingjam.assets.Asset;
 import com.dddbomber.fishingjam.assets.Screen;
@@ -36,6 +37,10 @@ public class FishingMenu extends Menu{
 			a.tick(input);
 		}
 		if(time % 30 == 0 && random.nextBoolean())Animation.animations.add(new FishJumpAnimation(100+random.nextInt(300), 200+random.nextInt(180)));
+		int height = random.nextInt(40);
+		if(time % 900 == 0 && random.nextBoolean()){
+			for(int i = 0; i < 4; i++)Animation.animations.add(new BirdAnimation(-10-random.nextInt(100), height + i * 20));
+		}
 		if(time % 10 != 0)return;
 	}
 	
