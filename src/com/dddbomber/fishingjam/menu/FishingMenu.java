@@ -41,8 +41,15 @@ public class FishingMenu extends Menu{
 		if(time % 900 == 0 && random.nextBoolean()){
 			for(int i = 0; i < 4; i++)Animation.animations.add(new BirdAnimation(-10-random.nextInt(100), height + i * 20));
 		}
-		if(time % 10 != 0)return;
+		if(time % 60 != 0)return;
+		if(currentFish == null){
+			if(random.nextInt(3) == 0){
+				currentFish = new Fish();
+			}
+		}
 	}
+	
+	public Fish currentFish;
 	
 	public int time;
 
@@ -113,5 +120,9 @@ public class FishingMenu extends Menu{
 		
 		screen.draw(Asset.buttons, 0, 368, 0, 0, 32, 32);
 		screen.draw(Asset.buttons, 568, 368, 32, 0, 32, 32);
+		
+		if(currentFish != null){
+			currentFish.render(screen);
+		}
 	}
 }

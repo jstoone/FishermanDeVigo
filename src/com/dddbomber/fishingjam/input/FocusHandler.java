@@ -6,16 +6,22 @@ import java.awt.event.FocusListener;
 
 public class FocusHandler implements FocusListener{
 	
-	public FocusHandler(Canvas c){
+	public KeyboardHandler keyboard;
+	
+	public FocusHandler(Canvas c, KeyboardHandler keyboard){
 		c.addFocusListener(this);
+		this.keyboard = keyboard;
 	}
 	public boolean hasFocus;
-	@Override
+	
 	public void focusGained(FocusEvent arg0) {
 		hasFocus = true;
 	}
-	@Override
+	
 	public void focusLost(FocusEvent arg0) {
 		hasFocus = false;
+		for(int i  = 0; i < keyboard.keys.length; i++){
+			keyboard.keys[i] = false;
+		}
 	}
 }

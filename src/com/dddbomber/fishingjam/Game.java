@@ -9,6 +9,7 @@ import java.awt.image.BufferStrategy;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import com.dddbomber.fishingjam.assets.Asset;
 import com.dddbomber.fishingjam.assets.Screen;
 import com.dddbomber.fishingjam.input.InputHandler;
 import com.dddbomber.fishingjam.instance.family.Person;
@@ -104,5 +105,6 @@ public class Game extends Canvas implements Runnable{
 	public void start() {
 		gameThread = new Thread(this);
 		gameThread.start();
+		Asset.music.loop();
 	}
 }

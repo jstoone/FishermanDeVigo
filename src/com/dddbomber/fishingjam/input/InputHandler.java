@@ -10,6 +10,6 @@ public class InputHandler {
 	public InputHandler(Canvas c){
 		keyboard = new KeyboardHandler(c);
 		mouse = new MouseHandler(c);
-		focus = new FocusHandler(c);
+		focus = new FocusHandler(c, keyboard);
 	}
 }

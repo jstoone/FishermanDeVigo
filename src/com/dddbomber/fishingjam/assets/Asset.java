@@ -18,4 +18,6 @@ public class Asset {
 
 	public static Bitmap fishAnim = AssetLoader.loadBitmap("/textures/anims/fish.png");
 	public static Bitmap birdAnim = AssetLoader.loadBitmap("/textures/anims/bird.png");
+
+	public static final Sound music = new Sound("/sounds/music.wav");
 }
