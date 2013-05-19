@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import com.dddbomber.fishingjam.instance.boat.Boat;
 import com.dddbomber.fishingjam.instance.equipment.Equipment;
 import com.dddbomber.fishingjam.instance.family.Person;
+import com.dddbomber.fishingjam.instance.fish.Fish;
 import com.dddbomber.fishingjam.menu.FamilyMenu;
 import com.dddbomber.fishingjam.menu.Menu;
 import com.dddbomber.fishingjam.menu.NewspaperMenu;
@@ -28,13 +29,34 @@ public class Instance {
 		//DAUGHTER
 		family.add(new Person(false, false, "Adelita Pescadoado"));
 		
-		selectedBoat = Boat.rowboat2;
+		unlockBoat(Boat.rowboat);
 		selectedEquipment = Equipment.smallRod;
 	}
 	
+	public void unlockBoat(Boat boat){
+		if(!boats.contains(boat)){
+			boats.add(boat);
+		}
+		selectedBoat = boat;
+	}
+	
 	public void nextDay(){
+		for(Person p : family){
+			p.health -= 5;
+			p.happiness -= 5;
+			p.hunger -= 5;
+			
+			if(!p.male)p.health -= 5;
+		}
+		family.get(0).hunger -= 5;
+		family.get(1).hunger -= 5;
+
+		family.get(2).happiness -= 5;
+		family.get(3).happiness -= 5;
 		Menu.menu = new FamilyMenu(new NewspaperMenu(News.newsList[day++]));
 	}
+	
+	public ArrayList<Fish> fishInBoat = new ArrayList<Fish>();
 	
 	public int day = 0;
 	public int money = 100;

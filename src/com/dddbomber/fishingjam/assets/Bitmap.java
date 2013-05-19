@@ -11,7 +11,7 @@ public class Bitmap {
 	}
 	
 	public static String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" +
-			"1234567890:";
+			"1234567890:/$";
 	
 	public static Bitmap font = AssetLoader.loadBitmap("/textures/chars.png");
 	
@@ -103,7 +103,11 @@ public class Bitmap {
 
             int xx = ch % 26;
             int yy = ch / 26;
-            drawScaledString(font, x +(int)(i*7*scale), y, xx * 7, yy * 6, 7, 6, col, scale);
+            if(string.charAt(i) == '$'){
+                drawScaledString(font, x +(int)(i*7*scale-2*scale), (int)(y-(scale)), xx * 7, yy * 6 - 1, 8, 7, col, scale);
+            }else{
+                drawScaledString(font, x +(int)(i*7*scale), y, xx * 7, yy * 6, 7, 5, col, scale);
+            }
         }
     }
 	
