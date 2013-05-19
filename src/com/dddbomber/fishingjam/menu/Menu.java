@@ -20,7 +20,7 @@ public abstract class Menu {
 	
 	public int time, animTime;
 	
-	public int delay = 60;
+	public int delay = 30;
 	
 	public boolean canTick(){
 		if(delay > 0)delay--;

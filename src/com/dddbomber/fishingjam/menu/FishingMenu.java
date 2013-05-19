@@ -48,8 +48,6 @@ public class FishingMenu extends Menu{
 	}
 	
 	public Fish currentFish;
-	
-	public int time;
 
 	Random random = new Random();
 	
@@ -123,7 +121,7 @@ public class FishingMenu extends Menu{
 		//screen.draw(Asset.buttons, 568, 368, 32, 0, 32, 32);
 		
 		if(currentFish != null){
-			currentFish.render(screen);
+			//currentFish.render(screen);
 		}
 	}
 }
