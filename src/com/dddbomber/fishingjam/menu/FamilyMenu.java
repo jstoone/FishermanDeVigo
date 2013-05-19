@@ -26,7 +26,7 @@ public class FamilyMenu extends Menu{
 			}
 		}
 		if(input.mouse.left && play){
-			Menu.menu = new FishingMenu();
+			Menu.menu = nextMenu;
 		}
 		
 		boolean up = input.keyboard.keys[KeyEvent.VK_UP];

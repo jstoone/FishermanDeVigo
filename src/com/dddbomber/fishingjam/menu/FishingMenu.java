@@ -63,9 +63,10 @@ public class FishingMenu extends Menu{
 	
 	public void render(Screen screen, InputHandler input) {
 		screen.drawScaled(Asset.bg, 300, 100, 0, time/8, 1, 50, 600, 4);
+		
 		if(time < 1038){
 			screen.draw(Asset.sun, 300-48, 250-time/3, 0, 0, 96, 96);
-		}if(time > 6162){
+		}else if(time > 6162){
 			screen.draw(Asset.sun, 300-48, 200+(6162-time)/3, 96, 0, 96, 96);
 		}
 		

@@ -17,14 +17,14 @@ import com.dddbomber.fishingjam.menu.Menu;
 public class Game extends Canvas implements Runnable{
 	private static final long serialVersionUID = 1L;
 	public static int WIDTH = 600, HEIGHT = 400;
-	public static int SCALE = 2;
+	public static int SCREENWIDTH = 900, SCREENHEIGHT = 600;
 	public static final String NAME = "Fisherman De Vigo";
 
 	public Screen screen;
 	public InputHandler input;
 	
 	public Game(){
-		setSize(new Dimension(WIDTH * SCALE, HEIGHT * SCALE));
+		setSize(new Dimension(SCREENWIDTH, SCREENHEIGHT));
 		screen = new Screen(WIDTH, HEIGHT);
 		input = new InputHandler(this);
 	}
@@ -48,8 +48,8 @@ public class Game extends Canvas implements Runnable{
 			while(time >= 1){
 				tick();
 				time -= 1;
-				render();
 			}
+			render();
 			if(System.currentTimeMillis() - lastSecond > 1000){
 				lastSecond += 1000;
 				System.out.println("FPS - " +renders +", TICKS - " + ticks);

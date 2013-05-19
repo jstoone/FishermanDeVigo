@@ -24,14 +24,7 @@ public class MainMenu extends Menu{
 		if(input.mouse.left){
 			if(play)Instance.getInstance().nextDay();
 		}
-		for(int i = 0; i < Animation.animations.size(); i++){
-			Animation a = Animation.animations.get(i);
-			a.tick(input);
-		}
 		animTime++;
-		if(random.nextInt(30) == 0 && random.nextBoolean())Animation.animations.add(new FishJumpAnimation(100+random.nextInt(300), 200+random.nextInt(180)));
-
-		
 	}
 	
 	public int time = 6450, animTime;
@@ -42,7 +35,7 @@ public class MainMenu extends Menu{
 		screen.drawScaled(Asset.bg, 300, 100, 0, time/8, 1, 50, 600, 4);
 		if(time < 1038){
 			screen.draw(Asset.sun, 300-48, 250-time/3, 0, 0, 96, 96);
-		}if(time > 6162){
+		}else if(time > 6162){
 			screen.draw(Asset.sun, 300-48, 200+(6162-time)/3, 96, 0, 96, 96);
 		}
 		
@@ -65,17 +58,12 @@ public class MainMenu extends Menu{
 		for(int x = -1; x < 3; x++){
 			for(int y = 0; y < 4; y++){
 				int anim = (animTime/10+x+y)%10;
-				screen.drawTrans(Asset.wave, x*200+11  + animTime%200 + y%2*100, y*50+11 + 200, 0, 16*(anim), 77, 16, 25);
+				screen.drawTrans(Asset.wave, x*200+11 + animTime%200 + y%2*100, y*50+11 + 200, 0, 16*anim, 77, 16, 25);
 			}
-		}
-
-		for(int i = 0; i < Animation.animations.size(); i++){
-			Animation a = Animation.animations.get(i);
-			a.render(screen);
 		}
 		screen.fill(0, 200, 600, 2, 0x79AEEA, 100);
 
-		screen.fill(0, 200, 600, 200, 0xbcbcff, 35);
+		screen.fill(0, 202, 600, 198, 0xbcbcff, 35);
 
 		screen.drawScaled(Asset.title, 300, 35, 0, 0, 200, 50, 2.5, 1);
 		

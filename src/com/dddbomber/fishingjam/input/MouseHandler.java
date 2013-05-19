@@ -19,41 +19,41 @@ public class MouseHandler implements MouseListener, MouseMotionListener{
 	public boolean left, right;
 
 	@Override
-	public void mouseDragged(MouseEvent arg0) {
-		x = arg0.getX()/Game.SCALE;
-		y = arg0.getY()/Game.SCALE;
+	public void mouseDragged(MouseEvent e) {
+		x = (int) (e.getX()/1.5);
+		y = (int) (e.getY()/1.5);
 	}
 
 	@Override
-	public void mouseMoved(MouseEvent arg0) {
-		x = arg0.getX()/Game.SCALE;
-		y = arg0.getY()/Game.SCALE;
+	public void mouseMoved(MouseEvent e) {
+		x = (int) (e.getX()/1.5);
+		y = (int) (e.getY()/1.5);
 	}
 
 	@Override
-	public void mouseClicked(MouseEvent arg0) {
+	public void mouseClicked(MouseEvent e) {
 		
 	}
 
 	@Override
-	public void mouseEntered(MouseEvent arg0) {
+	public void mouseEntered(MouseEvent e) {
 		
 	}
 
 	@Override
-	public void mouseExited(MouseEvent arg0) {
+	public void mouseExited(MouseEvent e) {
 		
 	}
 
 	@Override
-	public void mousePressed(MouseEvent arg0) {
-		if(arg0.getButton() == 1)left = true;
-		if(arg0.getButton() == 3)right = true;
+	public void mousePressed(MouseEvent e) {
+		if(e.getButton() == 1)left = true;
+		if(e.getButton() == 3)right = true;
 	}
 
 	@Override
-	public void mouseReleased(MouseEvent arg0) {
-		if(arg0.getButton() == 1)left = false;
-		if(arg0.getButton() == 3)right = false;
+	public void mouseReleased(MouseEvent e) {
+		if(e.getButton() == 1)left = false;
+		if(e.getButton() == 3)right = false;
 	}
 }
