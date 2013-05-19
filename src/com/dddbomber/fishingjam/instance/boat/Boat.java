@@ -2,6 +2,7 @@ package com.dddbomber.fishingjam.instance.boat;
 
 import com.dddbomber.fishingjam.assets.Asset;
 import com.dddbomber.fishingjam.assets.Bitmap;
+import com.dddbomber.fishingjam.instance.Instance;
 
 public class Boat {
 

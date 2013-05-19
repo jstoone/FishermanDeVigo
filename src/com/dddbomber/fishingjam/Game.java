@@ -88,7 +88,7 @@ public class Game extends Canvas implements Runnable{
 	private void tick() {
 		if(!input.focus.hasFocus)return;
 		ticks++;
-		if(Menu.menu != null)Menu.menu.tick(input);
+		if(Menu.menu != null && Menu.menu.canTick())Menu.menu.tick(input);
 		if(input.keyboard.keys[KeyEvent.VK_ESCAPE]){
 			
 		}

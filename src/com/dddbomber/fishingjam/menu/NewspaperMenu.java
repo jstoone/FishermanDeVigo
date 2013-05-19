@@ -31,7 +31,7 @@ public class NewspaperMenu extends Menu{
 	public int yOffset = 300;
 
 	public void render(Screen screen, InputHandler input) {
-		screen.fill(0, 0, 600, 400, 0, 100);
+		screen.fill(0, 0, 600, 400, 0x949494, 100);
 		screen.drawScaled(Asset.newspaper, 300, 250+yOffset, 0, 0, 80, 60, 5, 5);
 		
 		screen.draw(date, 110, 110+yOffset, 0x725C45, 1.5);

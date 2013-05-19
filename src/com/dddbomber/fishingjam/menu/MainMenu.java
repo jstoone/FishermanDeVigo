@@ -14,6 +14,11 @@ import com.dddbomber.fishingjam.news.News;
 public class MainMenu extends Menu{
 
 	public boolean play;
+	
+	public MainMenu(){
+		time = 6450;
+		shouldTickTime = false;
+	}
 
 	public void tick(InputHandler input) {
 		play = false;
@@ -25,10 +30,7 @@ public class MainMenu extends Menu{
 		if(input.mouse.left){
 			if(play)Instance.getInstance().nextDay();
 		}
-		animTime++;
 	}
-	
-	public int time = 6450, animTime;
 
 	Random random = new Random();
 	

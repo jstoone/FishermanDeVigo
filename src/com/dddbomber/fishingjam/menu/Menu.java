@@ -15,4 +15,17 @@ public abstract class Menu {
 	public void keyTyped(KeyEvent e) {
 		
 	}
+	
+	public boolean shouldTickTime = true;
+	
+	public int time, animTime;
+	
+	public int delay = 60;
+	
+	public boolean canTick(){
+		if(delay > 0)delay--;
+		if(shouldTickTime)time++;
+		animTime++;
+		return delay == 0;
+	}
 }

@@ -27,7 +27,6 @@ public class FishingMenu extends Menu{
 				}
 			}
 		}
-		time++;
 		if(input.keyboard.keys[KeyEvent.VK_SPACE]){
 			time += 15;
 		}
