@@ -2,6 +2,7 @@ package com.dddbomber.fishingjam.menu;
 
 import java.util.Random;
 
+import com.dddbomber.fishingjam.GameApplet;
 import com.dddbomber.fishingjam.anim.Animation;
 import com.dddbomber.fishingjam.anim.FishJumpAnimation;
 import com.dddbomber.fishingjam.assets.Asset;
@@ -65,11 +66,14 @@ public class MainMenu extends Menu{
 
 		screen.fill(0, 202, 600, 198, 0xbcbcff, 35);
 
-		screen.drawScaled(Asset.title, 300, 35, 0, 0, 200, 50, 2.5, 1);
+		String msg = "";
 		
-		String msg = "Fisherman De Vigo";
-		screen.draw(msg, 300-msg.length()*14, 24, 0, 4);
-		
+		if(!GameApplet.browser){
+			screen.drawScaled(Asset.title, 300, 35, 0, 0, 200, 50, 2.5, 1);
+
+			msg = "Fisherman De Vigo";
+			screen.draw(msg, 300-msg.length()*14, 24, 0, 4);
+		}
 
 		screen.drawScaled(Asset.title, 300, 340, 0, play ? 50 : 0, 200, 50, 1, 1);
 		

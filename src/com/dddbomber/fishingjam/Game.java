@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Canvas;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.event.KeyEvent;
 import java.awt.image.BufferStrategy;
 
 import javax.swing.JFrame;
@@ -72,6 +73,12 @@ public class Game extends Canvas implements Runnable{
 		
 		if(Menu.menu != null)Menu.menu.render(screen, input);
 		
+		if(!input.focus.hasFocus){
+			screen.fill(0, 0, WIDTH, HEIGHT, 0, 50);
+			String msg = "CLICK TO FOCUS";
+			screen.draw(msg, 300-msg.length()*7, 190, 0xffffff, 2);
+		}
+		
 		g.drawImage(screen.getImage(), 0, 0, getWidth(), getHeight(), null);
 		
 		g.dispose();
@@ -82,6 +89,9 @@ public class Game extends Canvas implements Runnable{
 		if(!input.focus.hasFocus)return;
 		ticks++;
 		if(Menu.menu != null)Menu.menu.tick(input);
+		if(input.keyboard.keys[KeyEvent.VK_ESCAPE]){
+			
+		}
 	}
 	
 	public static void main(String[] args){
