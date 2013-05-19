@@ -18,6 +18,6 @@ public class GameApplet extends Applet{
 	}
 	
 	public void stop(){
-		
+		game.stop();
 	}
 }

@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 
 import com.dddbomber.fishingjam.assets.Asset;
 import com.dddbomber.fishingjam.assets.Screen;
+import com.dddbomber.fishingjam.assets.Sound;
 import com.dddbomber.fishingjam.input.InputHandler;
 import com.dddbomber.fishingjam.instance.family.Person;
 import com.dddbomber.fishingjam.menu.Menu;
@@ -42,7 +43,7 @@ public class Game extends Canvas implements Runnable{
 		
 		this.requestFocus();
 		
-		while(true){
+		while(running){
 			long now = System.nanoTime();
 			time += (now - lastTime) / nsPerTick;
 			lastTime = now;
@@ -101,10 +102,18 @@ public class Game extends Canvas implements Runnable{
 	}
 	
 	private Thread gameThread;
+	
+	public boolean running = false;
 
 	public void start() {
+		running = true;
 		gameThread = new Thread(this);
 		gameThread.start();
 		Asset.music.loop();
+	}
+	
+	public void stop() {
+		Sound.stopAll();
+		running = false;
 	}
 }
