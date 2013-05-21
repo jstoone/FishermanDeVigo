@@ -4,9 +4,11 @@ import java.awt.BorderLayout;
 import java.awt.Canvas;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferStrategy;
 
+import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -48,11 +50,13 @@ public class Game extends Canvas implements Runnable{
 			long now = System.nanoTime();
 			time += (now - lastTime) / nsPerTick;
 			lastTime = now;
+			boolean render = false;
 			while(time >= 1){
 				tick();
 				time -= 1;
+				render = true;
 			}
-			render();
+			if(render)render();
 			if(System.currentTimeMillis() - lastSecond > 1000){
 				lastSecond += 1000;
 				System.out.println("FPS - " +renders +", TICKS - " + ticks);
@@ -94,6 +98,8 @@ public class Game extends Canvas implements Runnable{
 		}
 	}
 	
+	public static Image icon;
+	
 	public static void main(String[] args){
 		Game game = new Game();
 		JFrame frame = new JFrame(NAME);
@@ -104,6 +110,12 @@ public class Game extends Canvas implements Runnable{
 		frame.setResizable(false);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLocationRelativeTo(null);
+		try{
+			icon = ImageIO.read(Game.class.getResourceAsStream("/textures/gui/icon.png"));
+			frame.setIconImage(icon);
+		}catch(Exception e){
+			
+		}
 		frame.setVisible(true);
 		game.start();
 		for(int i = 0; i < 25; i++){

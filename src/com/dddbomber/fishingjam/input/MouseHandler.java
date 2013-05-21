@@ -5,8 +5,6 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
-import com.dddbomber.fishingjam.Game;
-
 public class MouseHandler implements MouseListener, MouseMotionListener{
 	
 	public MouseHandler(Canvas c){

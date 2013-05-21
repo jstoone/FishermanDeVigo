@@ -14,6 +14,7 @@ import com.dddbomber.fishingjam.instance.fish.Fish;
 
 public class FishingMenu extends Menu{
 	
+	public boolean spaceToggle;
 	Fish fish = new Fish();
 	
 	public void tick(InputHandler input) {
@@ -27,9 +28,21 @@ public class FishingMenu extends Menu{
 				}
 			}
 		}
-		if(input.keyboard.keys[KeyEvent.VK_SPACE]){
+		if(input.keyboard.keys[KeyEvent.VK_RIGHT]){
 			time += 15;
 		}
+
+		if(input.keyboard.keys[KeyEvent.VK_SPACE]){
+			if(spaceToggle){
+				spaceToggle = false;
+				if(fishOnLine){
+					fishCatchAmount += 10;
+				}
+			}
+		}else{
+			spaceToggle = true;
+		}
+		
 		if(time >= 6800)endDay();
 		for(int i = 0; i < Animation.animations.size(); i++){
 			Animation a = Animation.animations.get(i);
@@ -40,15 +53,25 @@ public class FishingMenu extends Menu{
 		if(time % 900 == 0 && random.nextBoolean()){
 			for(int i = 0; i < 4; i++)Animation.animations.add(new BirdAnimation(-10-random.nextInt(100), height + i * 20));
 		}
-		if(time % 60 != 0)return;
-		if(currentFish == null || true){
-			currentFish = new Fish();
-			Instance.getInstance().fishInBoat.add(currentFish);
+		if(fishOnLine){
+			if(fishCatchAmount >= 200){
+				fishOnLine = false;
+				fishCatchAmount = 0;
+				Instance.getInstance().fishInBoat.add(new Fish());
+			}
+			if(fishCatchAmount > 0 && time % 5 == 0)fishCatchAmount--;
+		}else{
+			if(random.nextBoolean() && time % 180 == 0){
+				fishOnLine = true;
+			}
 		}
 	}
 	
 	public Fish currentFish;
 
+	public  boolean fishOnLine = false;
+	public int fishCatchAmount = 0;
+	
 	Random random = new Random();
 	
 	public void endDay(){
@@ -120,8 +143,10 @@ public class FishingMenu extends Menu{
 		//screen.draw(Asset.buttons, 0, 368, 0, 0, 32, 32);
 		//screen.draw(Asset.buttons, 568, 368, 32, 0, 32, 32);
 		
-		if(currentFish != null){
-			//currentFish.render(screen);
+		if(fishOnLine){
+			screen.fill(198, 28, 204, 20, 0, 100);
+			screen.fill(200, 30, 200, 16, 0xff0000, 75);
+			screen.fill(200, 30, fishCatchAmount, 16, 0x00ff00, 75);
 		}
 	}
 }

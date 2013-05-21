@@ -3,13 +3,10 @@ package com.dddbomber.fishingjam.menu;
 import java.util.Random;
 
 import com.dddbomber.fishingjam.GameApplet;
-import com.dddbomber.fishingjam.anim.Animation;
-import com.dddbomber.fishingjam.anim.FishJumpAnimation;
 import com.dddbomber.fishingjam.assets.Asset;
 import com.dddbomber.fishingjam.assets.Screen;
 import com.dddbomber.fishingjam.input.InputHandler;
 import com.dddbomber.fishingjam.instance.Instance;
-import com.dddbomber.fishingjam.news.News;
 
 public class MainMenu extends Menu{
 

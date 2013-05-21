@@ -4,11 +4,6 @@ import java.applet.Applet;
 import java.applet.AudioClip;
 import java.util.ArrayList;
 
-import javax.sound.sampled.CompoundControl;
-import javax.sound.sampled.Control;
-import javax.sound.sampled.FloatControl;
-import javax.sound.sampled.Line;
-
 public class Sound {
 	public static ArrayList<Sound> sounds = new ArrayList<Sound>();
 
